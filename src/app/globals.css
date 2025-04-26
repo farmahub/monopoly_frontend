@@ -1,26 +1,49 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --black: #070707;
+    --darkgrey: #313638;
+    --grey: #646E78;
+    --brightgrey: #BBB5BD;
+    --white: #F6E8EA;
+    --background: #001524;
+    --ground: #69dc9e;
+    --brown: #ba5a31;
+    --blue: #3454D1;
+    --pink: #fc6dab;
+    --red: #FF1B1C;
+    --yellow: #f5b700; 
+    --green: #104911; 
+    --violet: #083D77;
+    --orange: #FF4000;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+	--color-black: var(--black);
+	--color-darkgrey: var(--darkgrey);
+	--color-grey: var(--grey);
+	--color-brightgrey: var(--brightgrey);
+	--color-white: var(--white);
+	--color-background: var(--background);
+	--color-ground: var(--ground);
+	--color-brown: var(--brown);
+	--color-blue: var(--blue);
+	--color-pink: var(--pink);
+	--color-orange: var(--orange);
+	--color-red: var(--red);
+	--color-yellow: var(--yellow);
+	--color-green: var(--green);
+	--color-violet: var(--violet);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: Consolas, sans-serif;
+}
+
+.roboto {
+    font-family: "Roboto", sans-serif;
+    
 }
