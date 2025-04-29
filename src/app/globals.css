@@ -13,10 +13,14 @@
     --blue: #3454D1;
     --pink: #fc6dab;
     --red: #FF1B1C;
-    --yellow: #f5b700; 
+    --yellow: #F6AE2D; 
     --green: #104911; 
     --violet: #083D77;
     --orange: #FF4000;
+    --vine: #753742;
+    --chance-1: #390040;
+    --chance-2: #66101F;
+    --tax: #5A2A27;
 }
 
 @theme {
@@ -35,6 +39,7 @@
 	--color-yellow: var(--yellow);
 	--color-green: var(--green);
 	--color-violet: var(--violet);
+	--color-vine: var(--vine);
 }
 
 body {
@@ -45,5 +50,4 @@ body {
 
 .roboto {
     font-family: "Roboto", sans-serif;
-    
 }
