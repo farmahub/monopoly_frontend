@@ -89,7 +89,7 @@ const Board: React.FC = () => {
                     return (
                         <div
                             key={index}
-                            className={"flex items-center justify-center relative border border-white"}
+                            className={"flex items-center justify-center relative border border-brightgrey"}
                             style={{
                                 gridColumnStart: colStart,
                                 gridRowStart: rowStart,
@@ -193,10 +193,15 @@ const Board: React.FC = () => {
                             18 <= index && index < 27 ? (total - corner - shift) - ((index - (2 * division)) * u) :
                                 27 <= index && index < 36 ? 1 : 0;
 
-                    const rowStart = 0 < index && index < 9 ? 1 :
+                    const rowStart = 0 <= index && index < 9 ? 1 :
                         9 <= index && index < 18 ? (corner + shift) + ((index - division) * u) :
                             18 <= index && index < 27 ? (corner * 2) + (9 * u) :
                                 27 <= index && index < 36 ? (total - corner - shift) - ((index - (3 * division)) * u) : 0;
+
+                    const orientation = 0 <= index && index < 9 ? 0 :
+                        9 <= index && index < 18 ? 90 :
+                            18 <= index && index < 27 ? 180 :
+                                27 <= index && index < 36 ? 270 : 0;
                     return (
                         <div
                             key={index}
@@ -208,9 +213,82 @@ const Board: React.FC = () => {
                                 gridRowEnd: `span ${rowSpan}`,
                             }}
                         >
-                            <p className={"text-white text-sm"}>
-                                {index}
-                            </p>
+                            <div
+                                className={"text-white text-[9px] flex items-center justify-center"}
+                                style={{
+                                    transform: `rotate(${orientation}deg)`
+                                }}
+                            >
+                                {[4, 13, 22, 31].includes(index) ?
+                                    <span
+                                        className="material-symbols-outlined"
+                                        style={{
+                                            fontSize: "19px",
+                                        }}
+                                    >
+                                        train
+                                    </span> :
+                                    [6, 19, 32].includes(index) ?
+                                    <span
+                                        className="material-symbols-outlined"
+                                        style={{
+                                            fontSize: "19px",
+                                        }}
+                                    >
+                                        not_listed_location
+                                    </span> :
+                                    [1, 15, 29].includes(index) ?
+                                    <span
+                                        className="material-symbols-outlined"
+                                        style={{
+                                            fontSize: "19px",
+                                        }}
+                                    >
+                                        inventory_2
+                                    </span> :
+                                    index === Number(34) ?
+                                    <span
+                                        className="material-symbols-outlined"
+                                        style={{
+                                            fontSize: "19px",
+                                        }}
+                                    >
+                                        diamond
+                                    </span> :
+                                    index === Number(3) ?
+                                    <span
+                                        className="material-symbols-outlined"
+                                        style={{
+                                            fontSize: "19px",
+                                        }}
+                                    >
+                                        attach_money
+                                    </span> :
+                                    index === Number(10) ?
+                                    <span
+                                        className="material-symbols-outlined"
+                                        style={{
+                                            fontSize: "19px",
+                                        }}
+                                    >
+                                        lightbulb_circle
+                                    </span> :
+                                    index === Number(25) ?
+                                    <span
+                                        className="material-symbols-outlined"
+                                        style={{
+                                            fontSize: "19px",
+                                        }}
+                                    >
+                                        lightbulb_circle
+                                    </span> :
+                                    0 <= index && index < 9 ? (<p>{index}</p>) :
+                                        9 <= index && index < 18 ? (<p>{index + 1}</p>) :
+                                            18 <= index && index < 27 ? (<p>{index + 2}</p>) :
+                                                27 <= index && index < 36 ? (<p>{index + 3}</p>) : 0
+                                }
+
+                            </div>
                         </div>
                     )
                 })}
